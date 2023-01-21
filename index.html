@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Guess karo Prize jeto</h1>
+        <label for="it1">Enter Number from 1-100</label>
+        <input type="text" name="inputtext" id="it1">
+        <button onclick="fun1()">Submit</button>
+    <p id="p1"></p>
+    <script>
+        function funRandom(){
+            var x=Math.random();
+            x=x*100;
+            x=Math.floor(x)+1;
+            return x;
+        }
+        var i=1;
+        var x=0;
+        function  fun1() {
+            var a=document.getElementById("it1").value;
+            if(i==1){
+                x=funRandom();
+            }
+            if(i>11){
+                var t=document.getElementById("p1").innerHTML="<h1>"+a+" YOU LOST </h1>"
+                setTimeout("location.reload(true);", 4000);
+            }
+            else if(a==x){
+                var t=document.getElementById("p1").innerHTML="<h1>"+a+" YOU WON </h1>"
+                setTimeout("location.reload(true);", 4000);
+            }
+            else if(a<x){
+                var t=document.getElementById("p1").innerHTML+="<br>"+i+":"+a+" too low";
+            }
+            else if(a>x){
+                var t=document.getElementById("p1").innerHTML+="<br>"+i+":"+a+" too high";
+            }
+            i++;
+        }
+    </script>
+</body>
+</html>
